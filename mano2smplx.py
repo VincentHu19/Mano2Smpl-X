@@ -23,7 +23,7 @@ M = np.diag([-1, 1, 1])                                                         
 # Assuming that your data are stored in gvhmr_smplx_params and hamer_mano_params
 full_body_pose = torch.concatenate((gvhmr_smplx_params["global_orient"], gvhmr_smplx_params["body_pose"].reshape(21, 3)), dim=0)     # gvhmr_smplx_params["global_orient"]: (3, 3)
 left_elbow_global_rot = compute_global_rotation(full_body_pose, 18) # left elbow IDX: 18
-right_elbow_global_rot = compute_global_rotation(full_body_pose, 18) # left elbow IDX: 18
+right_elbow_global_rot = compute_global_rotation(full_body_pose, 19) # left elbow IDX: 19
 
 left_wrist_global_rot = hamer_mano_params["global_orient"][0].cpu().numpy()                                                          # hamer_mano_params["global_orient"]: (2, 3, 3)
 left_wrist_global_rot = M @ left_wrist_global_rot @ M                                                                                # mirror switch
